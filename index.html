@@ -1,0 +1,469 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="animate.css">
+<meta charset="utf-8">
+<title>林海源的作品展示</title>
+</head>
+<style>
+	#boss{
+		width: 100%;
+		height: 300px;
+		margin-top: 100px;
+	}
+	.no1{
+		width: 167px;
+		height: 69px;
+		float: left;
+		padding-left: 25%;
+	}
+	.no1:hover{
+		animation: rubberBand 1.5s;
+	}
+	.no2{
+		width: 231px;
+		height: 73px;	
+		float: right;
+		padding-right: 25%;
+	}
+	.no2:hover{
+		animation: hinge 1.5s;
+	}
+	.no3{
+		width: 358px;
+		height: 65px;	
+		float: left;
+		padding-left: 20%;
+	}
+	.no3:hover{
+		animation: tada 1.5s;
+	}
+	.no4{
+			
+		width: 281px;
+		height: 67px;
+		float: right;
+		padding-right: 20%;
+	}
+	.no4:hover{
+		animation: rollOut 1.5s;
+	}
+	.no5{
+		width: 153px;
+		height: 153px;	
+		float: left;
+		padding-left: 25%;
+		padding-top: 30px;
+	}
+	.no5:hover{
+		animation: wobble 1.5s;
+	}
+	.no6{
+		width: 209px;
+		height: 209px;	
+		float: right;
+		padding-right: 25%;
+		
+	}
+	.no6:hover{
+		animation: jello 1.5s;
+	}
+	.no7{
+		width: 350px;
+		height: 103px;	
+		float: left;
+		padding-left: 25%;
+		padding-top: 30px;
+		
+	}
+	.no7:hover{
+		animation: fadeOutUpBig 1.5s;
+	}
+	/*轮播*/
+	*{
+			margin: 0;
+			padding: 0;
+			text-decoration: none;
+			list-style: none;
+			vertical-align: middle;
+		}
+		#box{
+			width: 700px;
+			height: 500px;
+			margin: 30px auto;
+			position: relative;
+			overflow: hidden;
+		}
+		#list{
+			width: 4900px;
+			height: 500px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			transition:1s;
+		}
+		#list li{
+			float: left;
+			width: 700px;
+			height: 100%;
+		}
+		#list li img{
+			width: 100%;
+			height: 100%;
+			opacity: 0.8;
+		}
+		#text{
+			background-color: rgba(0,0,0,.5);
+			width: 100%;
+			color: #fff;
+			height: 110px;
+			position: absolute;
+			left: 0;
+			bottom: -110px;
+			transition: .5s;
+		}
+		#text a{
+			color: #fff;
+		}
+		#text h1{
+			font-size: 20px;
+			line-height: 40px;
+			padding-left: 20px;
+		}
+		#text p{
+			padding-left: 20px;
+			text-indent: 2em;
+		}
+		#pver,#next{
+			display: inline-block;
+			width: 50px;
+			height: 50px;	
+			font-size: 30px;
+			background-color: #000;
+			color: #fff;
+			text-align: center;
+			line-height: 50px;	
+			position: absolute;
+			top: 50%;	
+			margin-top: -25px;
+			cursor: pointer;	
+		}
+		#pver{
+			left: 0;	
+		}
+		#next{
+			right: 0;	
+		}
+	
+	</style>
+	<!--轮播JS-->
+	<div id="box">
+		<ul id="list">
+			<li><a href="###"><img src="aodanlikang.png" alt=""></a></li>
+			<li><a href="###"><img src="hebeiaotuo.png" alt=""></a></li>
+			<li><a href="###"><img src="juyingcai.png" alt=""></a></li>
+			<li><a href="###"><img src="naxianzhaopin.png" alt=""></a></li>
+			<li><a href="###"><img src="qingdaoyuanyang.png" alt=""></a></li>
+			<li><a href="###"><img src="xiaoxiang.png" alt=""></a></li>
+			<li><a href="###"><img src="shoushi.png" alt=""></a></li>
+		</ul>
+		<div id="text">
+			<a href="###">
+				<h1>奥丹利康</h1>
+			</a>
+			<p>奥丹利康 奥丹利康 奥丹利康 奥丹利康 奥丹利康 奥丹利康 奥丹利康 奥丹利康 奥丹利康奥丹利康奥丹利康奥丹利康奥丹利康</p>
+		</div>
+		<span id="pver">&lt;</span><span id="next">&gt;</span>
+	</div>
+	<script type="text/javascript">
+		var oList = document.getElementById('list');
+		var aList = oList.getElementsByTagName('li');
+		var oText = document.getElementById('text');
+		var aH1 = oText.getElementsByTagName('h1');
+		var aP = oText.getElementsByTagName('p');
+		var pver = document.getElementById('pver');
+		var next = document.getElementById('next');
+		var arr = ['奥丹利康 奥丹利康 奥丹利康 奥丹利康 奥丹利康 奥丹利康 奥丹利康 奥丹利康 奥丹利康 奥丹利康 奥丹利康 奥丹利康 奥丹利康','河北奥拓 河北奥拓 河北奥拓 河北奥拓 河北奥拓 河北奥拓 河北奥拓 河北奥拓河北奥拓 河北奥拓 河北奥拓 河北奥拓 河北奥拓','聚英才 聚英才 聚英才 聚英才 聚英才 聚英才 聚英才 聚英才 聚英才 聚英才 聚英才 聚英才 聚英才 聚英才 聚英才 聚英才 聚英才 聚英才','纳贤招聘 纳贤招聘 纳贤招聘 纳贤招聘 纳贤招聘 纳贤招聘 纳贤招聘 纳贤招聘 纳贤招聘 纳贤招聘 纳贤招聘 纳贤招聘 纳贤招聘 纳贤招聘 纳贤招聘 纳贤招聘  纳贤招聘','青岛远洋船务 青岛远洋船务 青岛远洋船务 青岛远洋船务 青岛远洋船务 青岛远洋船务 青岛远洋船务 青岛远洋船务 青岛远洋船务 青岛远洋船务 青岛远洋船务 青岛远洋船务 青岛远洋船务 青岛远洋船务青岛远洋船务 ','小象 小象 小象 小象 小象 小象 小象 小象 小象 小象 小象 小象 小象 小象 小象 小象 小象 小象 小象 小象 小象。','首实教育 首实教育 首实教育 首实教育 首实教育 首实教育 首实教育 首实教育 首实教育 首实教育 首实教育 首实教育 首实教育 首实教育 首实教育 首实教育 首实教育 首实教育 首实教育 。']
+		var hrr = ['奥丹利康','河北奥拓','聚英才','纳贤招聘','青岛远洋船务','小象','首实教育']
+		// alert(aP.length)
+		var num = 0;
+
+		function tim() {
+
+			setTimeout(function (){
+				// clearTimeout(stop);
+				oText.style.bottom = 0+'px';
+			},1000)
+			setTimeout(function (){
+				oText.style.bottom = -110+'px';
+			},2000)
+		}
+		tim();
+
+
+		function tex() {
+			oList.style.left = -aList[0].offsetWidth*num+'px';
+			// clearTimeout(times);
+			tim();
+			setTimeout( function (){ aP[0].innerHTML = arr[num];
+			aH1[0].innerHTML = hrr[num]},1000)
+		}
+
+		function lb() {
+			// clearInterval(time);
+			num++;
+			if (num==aList.length) {num=0}
+			tex();
+		}
+
+		time=setInterval(lb,3000)
+		
+		pver.onclick = function () {
+			clearInterval(time);
+			num--;
+			if (num==-1) {num=aList.length-1}
+			tex();
+			time=setInterval(lb,3000)
+		}
+		next.onclick = function () {
+			clearInterval(time);
+			num++;
+			if (num==aList.length) {num=0}
+			tex();
+			time=setInterval(lb,3000)
+		}
+		
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<!--动态背景-->
+<canvas height="100%" width="100%" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 1; background-color: 
+	#000000;
+"  id="canvas"></canvas>
+<script>
+var canvas,
+	ctx,
+	width,
+	height,
+	size,
+	lines,
+	tick;
+
+function line() {
+	this.path = [];
+	this.speed = rand(10, 20);
+	this.count = randInt(10, 30);
+	this.x = width / 2, +1;
+	this.y = height / 2 + 1;
+	this.target = {
+		x: width / 2,
+		y: height / 2
+	};
+	this.dist = 0;
+	this.angle = 0;
+	this.hue = tick / 5;
+	this.life = 1;
+	this.updateAngle();
+	this.updateDist();
+}
+
+line.prototype.step = function(i) {
+	this.x += Math.cos(this.angle) * this.speed;
+	this.y += Math.sin(this.angle) * this.speed;
+
+	this.updateDist();
+
+	if (this.dist < this.speed) {
+		this.x = this.target.x;
+		this.y = this.target.y;
+		this.changeTarget();
+	}
+
+	this.path.push({
+		x: this.x,
+		y: this.y
+	});
+	if (this.path.length > this.count) {
+		this.path.shift();
+	}
+
+	this.life -= 0.001;
+
+	if (this.life <= 0) {
+		this.path = null;
+		lines.splice(i, 1);
+	}
+};
+
+line.prototype.updateDist = function() {
+	var dx = this.target.x - this.x,
+		dy = this.target.y - this.y;
+	this.dist = Math.sqrt(dx * dx + dy * dy);
+}
+
+line.prototype.updateAngle = function() {
+	var dx = this.target.x - this.x,
+		dy = this.target.y - this.y;
+	this.angle = Math.atan2(dy, dx);
+}
+
+line.prototype.changeTarget = function() {
+	var randStart = randInt(0, 3);
+	switch (randStart) {
+		case 0: // up
+			this.target.y = this.y - size;
+			break;
+		case 1: // right
+			this.target.x = this.x + size;
+			break;
+		case 2: // down
+			this.target.y = this.y + size;
+			break;
+		case 3: // left
+			this.target.x = this.x - size;
+	}
+	this.updateAngle();
+};
+
+line.prototype.draw = function(i) {
+	ctx.beginPath();
+	var rando = rand(0, 10);
+	for (var j = 0, length = this.path.length; j < length; j++) {
+		ctx[(j === 0) ? 'moveTo' : 'lineTo'](this.path[j].x + rand(-rando, rando), this.path[j].y + rand(-rando, rando));
+	}
+	ctx.strokeStyle = 'hsla(' + rand(this.hue, this.hue + 30) + ', 80%, 55%, ' + (this.life / 3) + ')';
+	ctx.lineWidth = rand(0.1, 2);
+	ctx.stroke();
+};
+
+function rand(min, max) {
+	return Math.random() * (max - min) + min;
+}
+
+function randInt(min, max) {
+	return Math.floor(min + Math.random() * (max - min + 1));
+};
+
+function init() {
+	canvas = document.getElementById('canvas');
+	ctx = canvas.getContext('2d');
+	size = 30;
+	lines = [];
+	reset();
+	loop();
+}
+
+function reset() {
+	width = Math.ceil(window.innerWidth / 2) * 2;
+	height = Math.ceil(window.innerHeight / 2) * 2;
+	tick = 0;
+
+	lines.length = 0;
+	canvas.width = width;
+	canvas.height = height;
+}
+
+function create() {
+	if (tick % 10 === 0) {
+		lines.push(new line());
+	}
+}
+
+function step() {
+	var i = lines.length;
+	while (i--) {
+		lines[i].step(i);
+	}
+}
+
+function clear() {
+	ctx.globalCompositeOperation = 'destination-out';
+	ctx.fillStyle = 'hsla(0, 0%, 0%, 0.1';
+	ctx.fillRect(0, 0, width, height);
+	ctx.globalCompositeOperation = 'lighter';
+}
+
+function draw() {
+	ctx.save();
+	ctx.translate(width / 2, height / 2);
+	ctx.rotate(tick * 0.001);
+	var scale = 0.8 + Math.cos(tick * 0.02) * 0.2;
+	ctx.scale(scale, scale);
+	ctx.translate(-width / 2, -height / 2);
+	var i = lines.length;
+	while (i--) {
+		lines[i].draw(i);
+	}
+	ctx.restore();
+}
+
+function loop() {
+	requestAnimationFrame(loop);
+	create();
+	step();
+	clear();
+	draw();
+	tick++;
+}
+
+function onresize() {
+	reset();
+}
+
+window.addEventListener('resize', onresize);
+
+init();
+
+</script>
+
+
+
+
+
+
+
+
+<body>
+<div id="boss">
+<div class="no1">
+	<a href="juyingcaii/html/index.html" target="_blank"><img src="logo1.png"></a>
+</div>
+<div class="no2">
+	<a href="naxian/index.html" target="_blank"><img src="logo.png"></a>
+</div>
+</div>
+<div id="boss">
+<div class="no3">
+	<a href="yuanyang/index.html" target="_blank"><img src="logo - 4.gif"></a>
+</div>
+<div class="no4">
+	<a href="aotuo/index.html" target="_blank"><img src="logo2.png"></a>
+</div>
+	</div>
+<div id="boss">
+<div class="no5">
+	<a href="wolikang/index.html" target="_blank"><img src="logo02.png"></a>
+</div>
+<div class="no6">
+	<a href="xiaoxiangw/index.html" target="_blank"><img src="newstu.png"></a>
+		</div>
+	</div>
+	<div id="boss">
+<div class="no7">
+	<a href="bj-shoushi-edu-project-master/index.html" target="_blank"><img src="shoushijiaoyu.png"></a>
+</div>
+</div>
+</body>
+</html>
+
+		
